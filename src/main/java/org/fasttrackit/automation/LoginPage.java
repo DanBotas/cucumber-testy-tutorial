@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
  * Created by Dan Botas on 1/26/2017.
  */
 public class LoginPage {
-    @FindBy(id = "email") 
+    @FindBy(id = "email")
     public WebElement emailField;
 
     @FindBy(name = "password")
@@ -21,5 +21,7 @@ public class LoginPage {
         passField.sendKeys(pass);
         loginBtn.click();
     }
+
+
 
 }
