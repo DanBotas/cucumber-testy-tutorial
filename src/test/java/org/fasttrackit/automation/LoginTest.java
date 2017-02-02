@@ -1,5 +1,7 @@
 package org.fasttrackit.automation;
 
+import com.sdl.selenium.web.WebLocator;
+import com.sdl.selenium.web.link.WebLink;
 import org.fasttrackit.util.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -13,17 +15,19 @@ import static org.junit.Assert.assertThat;
 
 public class LoginTest extends TestBase {
 
-    private LoginPage loginPage;
+   // private LoginPage loginPage;
+    private LoginView page = new LoginView();
 
-    public LoginTest() {
-       loginPage = PageFactory.initElements(driver, LoginPage.class);
-    }
+
+   // public LoginTest() {
+      // loginPage = PageFactory.initElements(driver, LoginPage.class);
+   // }
 
     @Test
     public void validLoginTest() {
         openBrowser();
 
-        loginPage.login("eu@fast.com", "eu.pass");
+        page.login("eu@fast.com", "eu.pass");
 
         try {
             WebElement logoutBtn = driver.findElement(By.linkText("Logout"));
@@ -37,7 +41,7 @@ public class LoginTest extends TestBase {
     public void invalidPasswordTest() {
         openBrowser();
 
-        loginPage.login("eu@fast.com", "eu.pass123");
+       page.login("eu@fast.com", "eu.pass123");
 
         WebElement errorElement = driver.findElement(By.className("error-msg"));
         System.out.println(errorElement.getText());
