@@ -16,10 +16,21 @@ public class ChangePasswordPage {
     private WebElement newPasswordField; //= driver.findElement(By.name("newPassword"));
     @FindBy(name = "newPasswordRepeat")
     private WebElement repeatPasswordField;//= driver.findElement(By.name("newPasswordRepeat"));
+    @FindBy(xpath = "//*[@id='preferences-win']//button[normalize-space(text())='Save']")
+    private WebElement saveBtn;
+    @FindBy(className = "status-msg")
+    private WebElement statusMsg;
+
 
    public void changePassword(String currentPass, String newPass, String repeatnewPass){
-        currentPasswordField.sendKeys("wrong.pass");
-        newPasswordField.sendKeys("new.pass");
-        repeatPasswordField.sendKeys("new.pass");
+        currentPasswordField.sendKeys(currentPass);
+        newPasswordField.sendKeys(newPass);
+        repeatPasswordField.sendKeys(repeatnewPass);
+        saveBtn.click();
+    }
+    public String getStatusMessage(){
+        String msg = statusMsg.getText();
+        System.out.println(msg);
+        return msg;
     }
 }
