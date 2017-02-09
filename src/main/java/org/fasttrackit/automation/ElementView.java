@@ -12,6 +12,10 @@ public class ElementView {
         public CheckBox stopProcessCheckbox = new CheckBox(stopProcessLabel);
         public CheckBox  labelWithEntercheckbox = new CheckBox(withEnterLabel);
 
+        public WebLocator autoOption = new WebLocator().setText("Auto").setClasses("filter-option");
+        public WebLocator menuDropDown = new WebLocator().setClasses("dropdown-menu");
+        public WebLocator manualOption = new WebLocator(menuDropDown).setText("Manual");
+
         public static void main(String[] args) {
             ElementView test = new ElementView();
             System.out.println(test.stopProcessLabel.getSelector());

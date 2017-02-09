@@ -37,5 +37,14 @@ public class ElementsTest extends TestBase {
 
 
     }
+    @Test
+    public void dropDownTest(){
+        openLoginPage();
+
+        loginView.login("eu@fast.com", "eu.pass");
+
+        page.autoOption.click();
+        page.manualOption.click();
+    }
 
 }
