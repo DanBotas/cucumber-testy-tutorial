@@ -35,6 +35,6 @@ public class LoginSteps extends TestBase {
     public void loginShouldFail() {
         WebLocator error = new WebLocator().setTag("strong").setText("Error:");
         boolean ready = error.ready();
-        Assert.assertTrue("Element is not found : " + error, ready);
+        Assert.assertTrue("ElementView is not found : " + error, ready);
     }
 }

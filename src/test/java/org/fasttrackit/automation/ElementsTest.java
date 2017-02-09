@@ -13,6 +13,7 @@ import static org.junit.Assert.assertThat;
 public class ElementsTest extends TestBase {
 
     private LoginView loginView = new LoginView();
+    private ElementView page = new ElementView();
 
     @Test
     public void checkboxesTest() {
@@ -20,25 +21,20 @@ public class ElementsTest extends TestBase {
 
         loginView.login("eu@fast.com", "eu.pass");
 
-        CheckBox stopProcessCheckbox = new CheckBox().setElPath("/html/body/form[1]/div[3]/label/input");
-        CheckBox  labelWithEntercheckbox = new CheckBox().setElPath("/html/body/form[1]/div[4]/label/input");
-
-        WebLocator stopProcessLabel = new WebLocator().setText("Stop the process?", SearchType.TRIM);
-        WebLocator withEnterLabel = new WebLocator().setText("Label with Enter", SearchType.TRIM, SearchType.CHILD_NODE);
-
-
-        stopProcessCheckbox.click();
-        labelWithEntercheckbox.click();
+        page.stopProcessCheckbox.click();
+        page.labelWithEntercheckbox.click();
 
         Utils.sleep(2000);
-        stopProcessLabel.click();
-        withEnterLabel.click();
+        page.stopProcessLabel.click();
+        page.withEnterLabel.click();
 
         Utils.sleep(2000);
-        stopProcessLabel.click();
-        withEnterLabel.click();
+        page.stopProcessLabel.click();
+        page.withEnterLabel.click();
 
-        assertThat("Stop the process is not selected!", stopProcessCheckbox.isSelected(), is(true));
+        assertThat("Stop the process is not selected!", page.stopProcessCheckbox.isSelected(), is(true));
+        assertThat("Label with Enter.", page.labelWithEntercheckbox.isSelected(), is(true));
+
 
     }
 
