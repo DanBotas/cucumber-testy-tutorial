@@ -1,12 +1,9 @@
 package org.fasttrackit.automation;
 
-import com.sdl.selenium.web.WebLocator;
-import com.sdl.selenium.web.link.WebLink;
 import org.fasttrackit.util.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -25,7 +22,7 @@ public class LoginTest extends TestBase {
 
     @Test
     public void validLoginTest() {
-        openBrowser();
+        openLoginPage();
 
         page.login("eu@fast.com", "eu.pass");
 
@@ -39,7 +36,7 @@ public class LoginTest extends TestBase {
 
     @Test
     public void invalidPasswordTest() {
-        openBrowser();
+        openLoginPage();
 
        page.login("eu@fast.com", "eu.pass123");
 
