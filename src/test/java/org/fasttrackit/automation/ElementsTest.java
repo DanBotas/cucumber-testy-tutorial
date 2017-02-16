@@ -5,6 +5,8 @@ import com.sdl.selenium.web.WebLocator;
 import com.sdl.selenium.web.form.CheckBox;
 import com.sdl.selenium.web.utils.Utils;
 import org.fasttrackit.util.TestBase;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import static org.hamcrest.core.Is.is;
@@ -46,5 +48,6 @@ public class ElementsTest extends TestBase {
         page.autoOption.click();
         page.manualOption.click();
     }
+
 
 }
